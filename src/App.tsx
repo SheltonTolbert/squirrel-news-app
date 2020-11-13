@@ -1,6 +1,15 @@
 import React, { FC } from 'react';
+import firebase from './api/firebase';
 
 export const App: FC<{}> = ({}) => {
+
+  const data = firebase.firestore()
+                          .collection('issues')
+                          .where('language', '==', 'en')
+                          .orderBy('publishedAt', 'desc').limit(5).get().then( snap => {
+                            console.log('snapshot', snap.docs[0].data());
+                          });
+
   return (
     <div>
     <div className="w-4/5 mx-auto flex p-6 bg-gray-300 mt-10 rounded-lg shadow-md">
@@ -8,7 +17,7 @@ export const App: FC<{}> = ({}) => {
         <h1 className="text-2xl text-blue-700 leading-tight">
           Tailwind is working
         </h1>
-        <p className="text-base text-gray-700 leading-normal">
+        <div className="text-base text-gray-700 leading-normal">
           And it looks so so good 
           <br/>
           <br/>
@@ -25,7 +34,7 @@ export const App: FC<{}> = ({}) => {
           </ul>
           <br/>
           <br/>Don't forget to download <a href='https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss' className='text-purple-700'>IntelliSense</a>
-        </p>
+        </div>
       </div>
   </div>
   </div>
