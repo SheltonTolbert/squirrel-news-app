@@ -1,6 +1,6 @@
+import React, { FC } from 'react';
 
-
-function App() {
+export const App: FC<{}> = ({}) => {
   return (
     <div>
     <div className="w-4/5 mx-auto flex p-6 bg-gray-300 mt-10 rounded-lg shadow-md">
