@@ -24,3 +24,5 @@ yarn-error.log*
 
 # special firebase config
 src/config/firebaseconf.ts
+
+/tailwind.config.js
