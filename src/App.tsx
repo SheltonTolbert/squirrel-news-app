@@ -33,7 +33,8 @@ docRef.get().then(function(doc) {
   return (
     <div className="h-full w-full">
       <Toolbar/>
-      <Pageview article={{id: 1, 
+      <Pageview article={{
+        id: 1, 
         date: '11/20/2020', 
         image: 'image_url', 
         image_credit: 'image.src.com', 
