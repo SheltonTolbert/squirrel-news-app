@@ -26,6 +26,7 @@ export interface Article {
   issue: string;
   published: boolean;
   language: string;
+  dateCreated: any;
   expanded?: boolean;
 }
 

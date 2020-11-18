@@ -60,14 +60,14 @@ export function getArchive(language: LANGUAGES, lastChunk: Partial<Issue> | null
 }
 
 
-// interface StoredFav {
-//   issue: string;
-//   doc: string;
-//   value: string;
-// }
+interface StoredFav {
+  issue: string;
+  doc: string;
+  value: string;
+}
 
-// export function getFavorites(favs: StoredFav[], onResult: (data: any) => void) {
+export function getFavorites(favs: StoredFav[], onResult: (data: any) => void) {
   
-//   const issues = favs.map( async (fav, idx) => await firestore.collection('issues').doc(fav.issue).collection('articles').get() );
-//   issues.filter( article => article )
-// }
+  const issues = favs.map( async (fav, idx) => await firestore.collection('issues').doc(fav.issue).collection('articles').get() );
+  issues.filter( article => article )
+}
