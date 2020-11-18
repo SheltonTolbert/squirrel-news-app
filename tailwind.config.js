@@ -9,7 +9,6 @@ module.exports = {
     'src/**/*.ts',
     'src/**/*.tsx',
     'src/**/*.html'
-
   ],
   theme: {
     extend: {
