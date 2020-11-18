@@ -22764,6 +22764,16 @@ video {
   height: 50%;
 }
 
+.scroll-snap {
+  -webkit-scroll-snap-type: x mandatory;
+      -ms-scroll-snap-type: x mandatory;
+          scroll-snap-type: x mandatory;
+}
+
+.snap-child {
+  scroll-snap-align: start;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

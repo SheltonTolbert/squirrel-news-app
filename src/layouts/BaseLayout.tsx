@@ -3,12 +3,33 @@ import { Switch, Route, BrowserRouter as Router, Link } from 'react-router-dom';
 import { IssuesPage } from '../pages';
 import { ArchivePage } from '../pages/ArchivePage';
 
+
+import { Toolbar } from '../components/Toolbar/Toolbar';
+import { Scrollview } from '../components/Scrollview/Scrollview'
+
+
+const intervals = 2; 
+
+
+
 export const BaseLayout: FC = () => {
   return (
     <div>
-      <h2>Base Layout</h2>
+    
+
       {/* render toolbar and
              Burger Menu here */}
+      <Toolbar/>
+      
+
+
+   {/* Items */}
+
+      <Scrollview/>
+
+    
+      
+      {/*
       <Router>
         <div>
           <nav>
@@ -32,6 +53,8 @@ export const BaseLayout: FC = () => {
           </Route>
         </Switch>
       </Router>
-    </div>
+      */}
+    
+      </div>
   )
 }

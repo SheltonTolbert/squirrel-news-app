@@ -1,9 +1,17 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 
 // Imports for testing
 import headline from "../../assets/headline.jpg";
 
-interface Article{
+
+// set the width of the page to the width of the screen
+const pageWidth: number = window.screen.width;
+const style: CSSProperties = {
+    width: pageWidth + 'px',
+  }
+
+
+interface Article{ 
     id: number;
     date: string;
     image: string;
@@ -39,12 +47,12 @@ interface Props{
 export const Pageview: React.FC<Props> = ({article}) => {
 
     return(
-        <div className="_image_container flex flex-col w-full h-full">
+        <div className="flex flex-col h-full snap-child" style={style} >
             {/* Image container div */}
             <div className="relative">            
                 
-                <div className="_image_container h-screen/2 w-full m-0 p-0" >
-                    <img className="w-full h-screen/2 object-cover p-0 m-0 overflow-hidden" src={headline} alt="article"/>
+                <div className="_image_container h-screen/2 m-0 p-0" style={style}>
+                    <img className=" h-screen/2 object-cover p-0 m-0 overflow-hidden" src={headline} alt="article" style={style}/>
                 </div>
                 
                 <div className="_date absolute ml-l bottom-0 left-0 text-left text-white">{article.date}</div>
@@ -54,7 +62,7 @@ export const Pageview: React.FC<Props> = ({article}) => {
 
             {/* Article information div */}
 
-            <div className="_article_info h-auto w-full m-0 p-0">
+            <div className="_article_info h-auto  m-0 p-0" style={style}>
                 <div className="_article_headline text-lg font-medium ml-3 mt-2 ">{article.headline}</div>
                 <div className="_article_provider ml-3 my-2">{article.provider}</div>
                 <div className="_article_description text-sm ml-3">{article.description}</div>   
