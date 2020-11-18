@@ -5,3 +5,11 @@
 .h-half {
   height: 50%;
 }
+
+.scroll-snap {
+  scroll-snap-type: x mandatory;
+}
+
+.snap-child {
+  scroll-snap-align: start;
+}
