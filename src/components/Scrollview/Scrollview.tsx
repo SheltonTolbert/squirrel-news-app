@@ -18,26 +18,20 @@ function convertRemToPixels(rem: number) {
 
 export const Scrollview: FC<{}> = () => {
 
-  // let articles = null; 
-  const [articles, setArticles] = useState<Article[]>([]);
+  const [issue, setIssue] = useState<{date: string, articles: Article[]}>({date: "", articles: []});
 
   useEffect(() => {
     getIssue(1, LANGUAGES.EN, (data) => {
-      console.log('current', data)
-      // set state ...
-      setArticles(data.articles);
-
+      setIssue({ date: data.title, articles: data.articles });
     });
-
   }, []);
 
   return (
     <div className="flex flex-row overflow-x-scroll overflow-y-hidden w-auto h-full scroll-snap" style={style}>
-
-      { articles.map(item =>
-        <Pageview key={item.articleId} article={{
+      { issue.articles.map( (item, idx) =>
+        <Pageview key={idx} article={{
           id: item.position,
-          date: `CONVERT DATE HERE`,
+          date: issue.date,
           image: item.imageUrl,
           image_credit: item.credit,
           link: item.url,
@@ -46,7 +40,6 @@ export const Scrollview: FC<{}> = () => {
           description: item.teaser
         }} />
       )}
-
     </div>
   );
 }
