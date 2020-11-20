@@ -15,7 +15,7 @@ interface Props{
 export const Toolbar: React.FC<Props> = () => {
 
     return(
-        <div className="_container flex flex-row w-full h-13 shadow">
+        <div className="_container flex flex-row w-full h-12 shadow">
             
             {/* Logo div */} 
             <div className="w-1/2 h-full">

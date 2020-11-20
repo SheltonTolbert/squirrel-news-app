@@ -22,7 +22,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Code Editors
+.idea/
+
 # special firebase config
 src/config/firebaseconf.ts
 
-/tailwind.config.js
+tailwind.output.css
