@@ -3,7 +3,7 @@ export interface Issue {
   teaser: string;
   image: string;
   imageCredit: string;
-  language: 'de' | 'en';
+  language: LANGUAGES;
   publishedAt: Date;
   title: string;
   issueURL: string;
@@ -37,6 +37,16 @@ export interface Donate {
   case?: string;
   url: string;
 }
+
+
+/**
+ * Used to store information on device via issueId and articleId
+ */
+interface StoredFav {
+  issueId: string;
+  articleId: string;
+}
+
 
 export enum LANGUAGES {
   DE = 'de',

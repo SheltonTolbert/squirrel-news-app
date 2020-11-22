@@ -60,12 +60,6 @@ export function getArchive(language: LANGUAGES, lastChunk: Partial<Issue> | null
 }
 
 
-interface StoredFav {
-  issue: string;
-  documentId: string;
-  // value: string;
-}
-
 /**
  * Returns the first result for an issue and an article Document Id
  * @param issueId : Document id of issue to lookup
