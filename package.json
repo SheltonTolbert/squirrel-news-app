@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@capacitor/core": "^2.4.3",
+    "@capacitor/ios": "^2.4.3",
     "firebase": "^8.0.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
