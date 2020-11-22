@@ -1,9 +1,5 @@
 import React, { CSSProperties } from "react";
 
-// Imports for testing
-import headline from "../../assets/headline.jpg";
-
-
 // set the width of the page to the width of the screen
 const pageWidth: number = window.screen.width;
 const style: CSSProperties = {
