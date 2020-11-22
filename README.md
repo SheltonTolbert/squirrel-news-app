@@ -7,7 +7,7 @@ It has a very straightforward stack tech:
 * Tailwind for UI
 * Firebase as app's backend
 
-![Data Flow](https://files.slack.com/files-pri/TTQ24J725-F01F6M811S7/image.png)
+![Data Flow](documents/app-stack.png)
 
 
 ## Setup 
