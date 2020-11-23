@@ -60,14 +60,17 @@ export function getArchive(language: LANGUAGES, lastChunk: Partial<Issue> | null
 }
 
 
-// interface StoredFav {
-//   issue: string;
-//   doc: string;
-//   value: string;
-// }
-
-// export function getFavorites(favs: StoredFav[], onResult: (data: any) => void) {
+/**
+ * Returns the first result for an issue and an article Document Id
+ * @param issueId : Document id of issue to lookup
+ * @param articleId: Document id of article to lookup
+ * @param onResult : callback handler
+ */
+export function getArticle(issueId: string, articleId: string, onResult: (favs: Article) => void) {
   
-//   const issues = favs.map( async (fav, idx) => await firestore.collection('issues').doc(fav.issue).collection('articles').get() );
-//   issues.filter( article => article )
-// }
+  firestore.collection('issues').doc(issueId).collection('articles').onSnapshot((articles) => {
+    console.log('articles', articles)
+    onResult(
+      articles.docChanges().filter( article => article.doc.id === articleId ).map( article => article.doc.data() as Article)[0] );
+  });
+}
