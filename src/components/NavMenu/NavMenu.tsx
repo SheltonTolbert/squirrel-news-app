@@ -23,7 +23,7 @@ export const NavMenu: React.FC<Props> = () => {
         <div>
             
             {/* Nav-Menu */} 
-            <div className="_menu flex flex-col absolute h-screen w-11/12 bg-white shadow z-20">
+            <div className="_menu flex flex-col absolute right-0 h-screen w-11/12 bg-white shadow z-20">
                 <div className="_spacer w-full h-40">
                     <SqIconLogo className="_icon_logo h-32 w-auto m-auto"/>
                 </div>
