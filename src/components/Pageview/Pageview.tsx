@@ -1,9 +1,5 @@
 import React, { CSSProperties } from "react";
 
-// Imports for testing
-import headline from "../../assets/headline.jpg";
-
-
 // set the width of the page to the width of the screen
 const pageWidth: number = window.screen.width;
 const style: CSSProperties = {
@@ -51,13 +47,13 @@ export const Pageview: React.FC<Props> = ({article}) => {
             {/* Image container div */}
             <div className="relative">            
                 
-                <div className="_image_container h-screen/2 m-0 p-0" style={style}>
-                    <img className=" h-screen/2 object-cover p-0 m-0 overflow-hidden" src={headline} alt="article" style={style}/>
-                </div>
-                
-                <div className="_date absolute ml-l bottom-0 left-0 text-left text-white">{article.date}</div>
-                <div className="_image_credit absolute mr-1 bottom-0 right-0 text-right text-white">{article.image_credit}</div>
-            
+              <div className="_image_container h-screen/2 m-0 p-0" style={style}>
+                  <img className=" h-screen/2 object-cover p-0 m-0 overflow-hidden" src={article.image} alt="article" style={style}/>
+              </div>
+              
+              <div className="_date absolute ml-l bottom-0 left-0 text-left text-white">{article.date}</div>
+              <div className="_image_credit absolute mr-1 bottom-0 right-0 text-right text-white">{article.image_credit}</div>
+          
             </div>
 
             {/* Article information div */}

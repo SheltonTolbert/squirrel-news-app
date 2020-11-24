@@ -28,4 +28,4 @@ yarn-error.log*
 # special firebase config
 src/config/firebaseconf.ts
 
-tailwind.output.css
+src/tailwind.output.css
