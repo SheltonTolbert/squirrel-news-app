@@ -1,10 +1,11 @@
 import React, { CSSProperties } from "react";
-
+import {Plugins } from '@capacitor/core';
 // set the width of the page to the width of the screen
 const pageWidth: number = window.screen.width;
 const style: CSSProperties = {
     width: pageWidth + 'px',
   }
+const {Browser} = Plugins; 
 
 
 interface Article{ 
@@ -40,15 +41,23 @@ interface Props{
 
 }
 
+
+
+
 export const Pageview: React.FC<Props> = ({article}) => {
 
+     async function openBrowser(url: string){
+        await Browser.open({url});
+    }
+    
+    
     return(
         <div className="flex flex-col h-full snap-child" style={style} >
             {/* Image container div */}
             <div className="relative">            
                 
               <div className="_image_container h-screen/2 m-0 p-0" style={style}>
-                  <img className=" h-screen/2 object-cover p-0 m-0 overflow-hidden" src={article.image} alt="article" style={style}/>
+                  <img className=" h-screen/2 object-cover p-0 m-0 overflow-hidden" src={article.image} alt="article" onClick={ () => openBrowser(article.link)} style={style}/>
               </div>
               
               <div className="_date absolute ml-l bottom-0 left-0 text-left text-white">{article.date}</div>
