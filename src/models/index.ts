@@ -10,6 +10,7 @@ export interface Issue {
   showDonation: boolean;
   donationTitle: string;
   donationText: string;
+  donationUrl: string;
   articles: Article[];
 }
 
