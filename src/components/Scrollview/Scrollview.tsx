@@ -1,7 +1,8 @@
 import React, { CSSProperties, FC, useEffect, useState } from 'react';
 import { Pageview } from '../Pageview/Pageview'
 import { getIssue } from '../../api/firebase';
-import { Article, LANGUAGES, } from '../../models';
+import { Article, Donate, LANGUAGES, } from '../../models';
+import { DonationPage } from '../DonationPage/DonationPage'
 
 // calculate window height based on the screen size, subtract the height of the nav bar (3 rem)
 // This places the scroll bar at the bottom of the page
@@ -26,8 +27,13 @@ export const Scrollview: FC<{}> = () => {
     });
   }, []);
 
+
+  
+  
   return (
     <div className="flex flex-row overflow-x-scroll overflow-y-hidden w-auto h-full scroll-snap" style={style}>
+      
+      
       { issue.articles.map( (item, idx) =>
         <Pageview key={idx} article={{
           id: item.position,
@@ -40,6 +46,7 @@ export const Scrollview: FC<{}> = () => {
           description: item.teaser
         }} />
       )}
+      
     </div>
   );
 }
