@@ -19,22 +19,22 @@ function convertRemToPixels(rem: number) {
 
 export const Scrollview: FC<{}> = () => {
 
-  const [issue, setIssue] = useState<{date: string, articles: Article[]}>({date: "", articles: []});
+  const [issue, setIssue] = useState<{ donate: { title: string, text: string, url: string }, date: string, articles: Article[] }>({ donate: { title: "", text: "", url: "" }, date: "", articles: [] });
 
   useEffect(() => {
     getIssue(1, LANGUAGES.EN, (data) => {
-      setIssue({ date: data.title, articles: data.articles });
+      setIssue({ donate: { title: data.donationTitle, text: data.donationText, url: data.donationUrl }, date: data.title, articles: data.articles });
     });
   }, []);
 
 
-  
-  
+
+
   return (
     <div className="flex flex-row overflow-x-scroll overflow-y-hidden w-auto h-full scroll-snap" style={style}>
-      
-      
-      { issue.articles.map( (item, idx) =>
+
+
+      { issue.articles.map((item, idx) =>
         <Pageview key={idx} article={{
           id: item.position,
           date: issue.date,
@@ -46,7 +46,14 @@ export const Scrollview: FC<{}> = () => {
           description: item.teaser
         }} />
       )}
-      
+
+      <DonationPage info={{
+        id: 1000,
+        headline: issue.donate.title,
+        body: issue.donate.text
+        // body: "Squirrel News is financed exclusively by small and medium-sized donations. By donating the cost of a cup of coffee (or two) each month, you're helping us to continue our work and keep Squirrel News running ad-free!"
+      }} />
+
     </div>
   );
 }

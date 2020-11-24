@@ -33,12 +33,14 @@ export const DonationPage: React.FC<Props> = ({info}) => {
     
     
     return(
-        <div className="flex flex-col h-full snap-child" style={style}>
-            <div className="_logo_container w-full h-auto">
-                <img className=" h-48 w-48 mt-12 m-auto object-cover p-0 overflow-hidden rounded-full" src={logo} alt='donate' onClick={ () => openBrowser("https://squirrel-news.net/support-us/")}></img>
-            </div>
-            <div className="_support_us w-10/12 h-12 mx-auto mt-24 text-2xl">{info.headline}</div>
-            <div className="_support_us w-10/12 h-auto mx-auto text-lg">{info.body}</div>
+        <div className="flex flex-col h-full w-screen snap-child" style={style}>
+            {/* <div className="relative"> */}
+              <div className="_logo_container w-full h-auto" style={style}>
+                  <img className=" h-48 w-48 mt-12 m-auto object-cover p-0 overflow-hidden rounded-full" src={logo} alt='donate' onClick={ () => openBrowser("https://squirrel-news.net/support-us/")}></img>
+              </div>
+              <div className="_support_us w-10/12 h-12 mx-auto mt-24 text-2xl">{info.headline}</div>
+              <div className="_support_us w-10/12 h-auto mx-auto text-lg">{info.body}</div>
+            {/* </div> */}
         </div>
     );
 
