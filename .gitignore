@@ -24,8 +24,10 @@ yarn-error.log*
 
 # Code Editors
 .idea/
+.vscode/
 
 # special firebase config
 src/config/firebaseconf.ts
 
+# special tailwind output
 src/tailwind.output.css
