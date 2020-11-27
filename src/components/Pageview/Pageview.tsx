@@ -1,11 +1,14 @@
 import React, { CSSProperties } from "react";
 import {Plugins } from '@capacitor/core';
 // set the width of the page to the width of the screen
+
+
 const pageWidth: number = window.screen.width;
 const style: CSSProperties = {
     width: pageWidth + 'px',
   }
-const {Browser} = Plugins; 
+
+  const {Browser} = Plugins; 
 
 
 interface Article{ 
@@ -36,9 +39,7 @@ interface Props{
             article description: 
         }
     */
-
-    article: Article
-
+    article: Article;
 }
 
 
