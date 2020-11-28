@@ -3,6 +3,7 @@ import { Pageview } from '../Pageview/Pageview'
 import { getIssue } from '../../api/firebase';
 import { Article, Donate, LANGUAGES, } from '../../models';
 import { DonationPage } from '../DonationPage/DonationPage'
+import { RouteComponentProps } from 'react-router-dom';
 
 // calculate window height based on the screen size, subtract the height of the nav bar (3 rem)
 // This places the scroll bar at the bottom of the page
@@ -17,17 +18,30 @@ function convertRemToPixels(rem: number) {
   return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
 }
 
-export const Scrollview: FC<{}> = () => {
+
+
+
+
+
+
+
+
+
+
+interface Props extends RouteComponentProps<{id: string}> {}
+
+
+export const Scrollview: FC<Props> = ({ match }) => {
 
   const [issue, setIssue] = useState<{ donate: { title: string, text: string, url: string }, date: string, articles: Article[] }>({ donate: { title: "", text: "", url: "" }, date: "", articles: [] });
-
+  
   useEffect(() => {
-    getIssue(1, LANGUAGES.EN, (data) => {
+    getIssue( Number(match.params.id + 1) , LANGUAGES.EN, (data) => {
       setIssue({ donate: { title: data.donationTitle, text: data.donationText, url: data.donationUrl }, date: data.title, articles: data.articles });
     });
   }, []);
 
-
+console.log(issue)
 
 
   return (
@@ -51,7 +65,6 @@ export const Scrollview: FC<{}> = () => {
         id: 1000,
         headline: issue.donate.title,
         body: issue.donate.text
-        // body: "Squirrel News is financed exclusively by small and medium-sized donations. By donating the cost of a cup of coffee (or two) each month, you're helping us to continue our work and keep Squirrel News running ad-free!"
       }} />
 
     </div>

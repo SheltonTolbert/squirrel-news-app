@@ -32,13 +32,14 @@ export const ArchivePage: FC = () => {
         });
       }, []);
     
+      
     
     return(
         <div>
         
         { issues.data.map((item: any, idx: any) =>
-        <IssueTeaser key={idx}  date={item.title} headline={item.headline} image={item.image} link={item.issueURL}/>
-      )}
+          <IssueTeaser key={idx}  date={item.title} headline={item.headline} image={item.image} link={item.issueURL} issueNum={idx}/>
+        )}
 
         
         
