@@ -1,10 +1,8 @@
 import React, { FC } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'; 
-import { Toolbar } from '../components/Toolbar/Toolbar';
+import { NavBar } from '../components/NavBar/NavBar';
 import { Scrollview } from '../components/Scrollview/Scrollview'
-import { DonationPage } from '../components/DonationPage/DonationPage';
-import { ArchivePage } from '../pages/ArchivePage';
-
+import { AboutUsPage, DonationPage, ArchivePage, FavoritesPage, ImprintPage, PrivacyPolicyPage } from '../pages/index';
 // const intervals = 2; 
 
 
@@ -16,7 +14,7 @@ export const BaseLayout: FC = () => {
 
       <Router>        
       {/* render toolbar and Burger Menu here */}
-      <Toolbar/>
+      <NavBar/>
         
         <Switch>
           
@@ -37,14 +35,27 @@ export const BaseLayout: FC = () => {
           <Route exact path="/donate">
             <DonationPage info={{
               id: 1000,
-              headline: 'this is a router test',
-              body: 'issue.donate.text'
+              headline: 'Support us!',
+              body: 'Squirrel News is financed exclusively by small and medium-sized donations. By donating the cost of a cup of coffee (or two) each month, you’re helping us to continue our work and keep Squirrel News running ad-free!'
              }}/>
-
-          
-
           </Route>
         
+          <Route exact path="/favorites">
+            <FavoritesPage/>
+          </Route>
+
+          <Route exact path="/about">
+            <AboutUsPage/>
+          </Route>
+
+          <Route exact path="/imprint">
+            <ImprintPage/>
+          </Route>
+
+          <Route exact path="/privacy">
+            <PrivacyPolicyPage/>
+          </Route>
+
         </Switch>
       
       </Router>
