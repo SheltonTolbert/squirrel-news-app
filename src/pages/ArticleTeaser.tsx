@@ -45,7 +45,7 @@ interface Props{
 
 
 
-export const Pageview: React.FC<Props> = ({article}) => {
+export const ArticleTeaser: React.FC<Props> = ({article}) => {
 
      async function openBrowser(url: string){
         await Browser.open({url});
@@ -53,27 +53,30 @@ export const Pageview: React.FC<Props> = ({article}) => {
     
     
     return(
-        <div className="flex flex-col h-full snap-child" style={style} >
-            {/* Image container div */}
-            <div className="relative">            
-                
-              <div className="_image_container h-screen/2 m-0 p-0" style={style}>
-                  <img className=" h-screen/2 object-cover p-0 m-0 overflow-hidden" src={article.image} alt="article" onClick={ () => openBrowser(article.link)} style={style}/>
-              </div>
-              
-              <div className="_date absolute ml-l bottom-0 left-0 text-left text-white">{article.date}</div>
-              <div className="_image_credit absolute mr-1 bottom-0 right-0 text-right text-white">{article.image_credit}</div>
-          
-            </div>
+        <div className="flex flex-col-reverse h-full snap-child" style={style} >
+
 
             {/* Article information div */}
 
-            <div className="_article_info h-auto  m-0 p-0" style={style}>
+            <div className="_article_info h-auto  mb-4 p-0" style={style}>
                 <div className="_article_headline text-lg font-medium ml-3 mt-2 ">{article.headline}</div>
                 <div className="_article_provider ml-3 my-2">{article.provider}</div>
                 <div className="_article_description text-sm ml-3">{article.description}</div>   
             </div> 
         
+            {/* Image container div */}
+            <div className="relative h-full w-auto">            
+                
+              <div className="_image_container h-full m-0 p-0" style={style}>
+                  <img className=" h-full object-cover p-0 m-0 overflow-hidden" src={article.image} alt="article" onClick={ () => openBrowser(article.link)} style={style}/>
+              </div>
+              
+              <div className="_date absolute ml-1 bottom-0 left-0 text-left text-white">{article.date}</div>
+              <div className="_image_credit absolute mr-1 bottom-0 right-0 text-right text-white">{article.image_credit}</div>
+          
+            </div>
+
+
         </div>
     );
 
