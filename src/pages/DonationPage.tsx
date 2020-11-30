@@ -1,6 +1,6 @@
 import React, { CSSProperties } from "react";
 import {Plugins } from '@capacitor/core';
-import logo from '../../assets/squirrel-donate.jpg';
+import logo from '../assets/squirrel-donate.jpg';
 
 
 

@@ -15,7 +15,7 @@ interface Props{
     // variable_name: type
 }
 
-export const Toolbar: React.FC<Props> = () => {
+export const NavBar: React.FC<Props> = () => {
 
     const [style, setStyle] = useState<CSSProperties>({display: 'none'});
 
