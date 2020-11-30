@@ -8,7 +8,7 @@ import { getIssue , getArchive} from '../api/firebase';
 
 
 
-export const ArchivePage: FC = () => {
+export const FavoritesPage: FC = () => {
     
     const [issues, setIssues] = useState<(any)> ( {data : [{ 
         image: "", 

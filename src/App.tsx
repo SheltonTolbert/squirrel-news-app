@@ -17,7 +17,7 @@ export const App: FC<{}> = ({}) => {
 
   return (
     <div>
-      <FAB></FAB>
+      {/* <FAB></FAB> */}
       <BaseLayout />
     </div>  
   );

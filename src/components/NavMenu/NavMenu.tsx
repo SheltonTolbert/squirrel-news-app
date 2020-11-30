@@ -1,5 +1,5 @@
 import React from "react";
-
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 // SVG imports 
 import { ReactComponent as SqIconLogo } from '../../assets/icon/sn-logo.svg'; // Wrap the svg logo in a component container
 
@@ -33,27 +33,27 @@ export const NavMenu: React.FC<Props> = () => {
                 </div>
 
                 <div className={style}>
-                    All Issues
+                    <Link to="/archive"> All Issues </Link>
                 </div>
 
                 <div className={style}>
-                    Favourites
+                    <Link to="/favorites"> Favourites </Link>
                 </div>
   
                 <div className={style}>
-                    About Us
+                    <Link to="/about"> About Us </Link>
                 </div>
 
                 <div className={style}>
-                    Support Us
+                   <Link to="/donate"> Support Us </Link>
                 </div>
 
                 <div className={style}>
-                    Imprint
+                    <Link to="/imprint"> Imprint </Link>
                 </div>
 
                 <div className={style}>
-                    Privacy Policy
+                    <Link to="/privacy"> Privacy Policy </Link>
                 </div>
 
             </div>
