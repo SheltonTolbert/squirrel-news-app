@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { ReactComponent as Logo } from '../assets/icon/squirrel-news-logo.svg';
+import { ReactComponent as Logo } from '../assets/icon/heart.svg';
 
 export const FAB: FC<{}> = () => {
   return (
