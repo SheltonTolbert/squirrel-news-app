@@ -4,7 +4,9 @@ import { getIssue } from '../../api/firebase';
 import { Article, Donate, LANGUAGES, } from '../../models';
 import { DonationPage } from '../../pages/DonationPage'
 import { RouteComponentProps } from 'react-router-dom';
-import { IssuesPage } from '../../pages';
+//import { IssuesPage } from '../../pages';
+import { IssueCoverPage } from '../../pages/IssueCoverPage';
+
 
 // calculate window height based on the screen size, subtract the height of the nav bar (3 rem)
 // This places the scroll bar at the bottom of the page
@@ -23,7 +25,24 @@ interface Props extends RouteComponentProps<{id: string}> {}
 export const Scrollview: FC<Props> = ({ match }) => {
   
   const [paginator, refreshPaginator] = useState<any>();
-  const [issue, setIssue] = useState<{ donate: { title: string, text: string, url: string }, date: string, articles: Article[] }>({ donate: { title: "", text: "", url: "" }, date: "", articles: [] });
+  const [issue, setIssue] = useState<
+  { 
+    donate: { title: string, text: string, url: string }, 
+    date: string, 
+    articles: Article[], 
+    headline: string,
+    image: string,
+    imageCredit: string,
+  }>
+  ({ 
+    donate: { title: "", text: "", url: "" }, 
+    date: "", 
+    articles: [], 
+    headline: "",
+    image: "",
+    imageCredit: "",
+  });
+
   const [currentPage, updatePage] = useState(0);
   
   var ref = React.createRef<HTMLDivElement>();
@@ -37,7 +56,15 @@ export const Scrollview: FC<Props> = ({ match }) => {
 
   useEffect(() => {
     getIssue( Number(match.params.id + 1) , LANGUAGES.EN, (data) => {
-      setIssue({ donate: { title: data.donationTitle, text: data.donationText, url: data.donationUrl }, date: data.title, articles: data.articles });
+      setIssue(
+      { 
+        donate: { title: data.donationTitle, text: data.donationText, url: data.donationUrl }, 
+        date: data.title, 
+        articles: data.articles, 
+        headline: data.headline,
+        image: data.image,
+        imageCredit: data.imageCredit, 
+      });
       setScrollStart();
       setDonatePage();
     });
@@ -108,6 +135,12 @@ export const Scrollview: FC<Props> = ({ match }) => {
       numPages = getNumberOfPages();
       let bullets: any = []
       
+      if (issue.headline != undefined){
+        if (issue.headline.length > 0){
+          numPages += 1; 
+        }
+      }
+
       if (issue.donate.title != undefined){
         if (issue.donate.title.length > 0){
           numPages += 1; 
@@ -125,10 +158,14 @@ export const Scrollview: FC<Props> = ({ match }) => {
       refreshPaginator(bullets)
   }
 
+  console.log(issue);
+
   return (
     <div className="flex flex-col">
     
       <div ref={ref} className="flex flex-row overflow-x-scroll overflow-y-hidden hide-scrollbars w-auto h-full scroll-snap" style={style}>
+
+        <IssueCoverPage date={issue.date} headline={issue.headline} image={issue.image} imageCredit={issue.imageCredit}/>
 
 
         {issue.articles.map((item, idx) =>
