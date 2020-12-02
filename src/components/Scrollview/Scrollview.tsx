@@ -45,6 +45,7 @@ export const Scrollview: FC<Props> = ({ match }) => {
 
   const [currentPage, updatePage] = useState(0);
   
+
   var ref = React.createRef<HTMLDivElement>();
   var div: any = null;
   var numPages = 0; 
@@ -158,7 +159,7 @@ export const Scrollview: FC<Props> = ({ match }) => {
       refreshPaginator(bullets)
   }
 
-  console.log(issue);
+  
 
   return (
     <div className="flex flex-col">
@@ -166,7 +167,6 @@ export const Scrollview: FC<Props> = ({ match }) => {
       <div ref={ref} className="flex flex-row overflow-x-scroll overflow-y-hidden hide-scrollbars w-auto h-full scroll-snap" style={style}>
 
         <IssueCoverPage date={issue.date} headline={issue.headline} image={issue.image} imageCredit={issue.imageCredit}/>
-
 
         {issue.articles.map((item, idx) =>
           <ArticleTeaser key={idx} article={{
@@ -181,8 +181,6 @@ export const Scrollview: FC<Props> = ({ match }) => {
           }} />
         )}
 
-        
-        
         <DonationPage info={{
           id: 1000,
           headline: issue.donate.title,
