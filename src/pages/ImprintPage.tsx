@@ -8,7 +8,7 @@ import React, { FC } from 'react';
 export const ImprintPage: FC = () => {
     
 return (
-<div className="_entry-content">
+<div className="_entry-content mx-4 my-4">
 
 
 <p><strong>Squirrel News</strong> is a brand of the </p>

@@ -6,7 +6,7 @@ import logo from '../assets/squirrel-donate.jpg';
 
 // set the width of the page to the width of the screen
 const pageWidth: number = window.screen.width;
-const style: CSSProperties = {
+var style: CSSProperties = {
     width: pageWidth + 'px',
   }
 const {Browser} = Plugins; 
@@ -31,6 +31,11 @@ export const DonationPage: React.FC<Props> = ({info}) => {
         await Browser.open({url});
     }
     
+    if (info.headline === undefined){
+        style = {
+            display: 'none'
+        }
+    }
     
     return(
         <div className="flex flex-col h-full w-screen snap-child" style={style}>
