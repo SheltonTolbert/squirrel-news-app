@@ -85,15 +85,15 @@ export const Scrollview: FC<Props> = ({ match }) => {
   // called every frame to get scroll position
   function getScrollPosition(){
     // this will filter out non-number inputs
-    if (div != null && div.scrollLeft >= 0){
-      if (div.scrollLeft % window.screen.width == 0 ){
+    if (div !== null && div.scrollLeft >= 0){
+      if (div.scrollLeft % window.screen.width === 0 ){
         updatePage(getCurrentPage()); 
       }
     }
   }
 
   function setScrollStart(){
-    if (div != null){
+    if (div !== null){
       div.scrollLeft = 0;
     }
   }
@@ -104,7 +104,7 @@ export const Scrollview: FC<Props> = ({ match }) => {
   var loadingDiv = <div></div>;
   var donate: any = loadingDiv;
   function setDonatePage(){
-    if (div != null){
+    if (div !== null){
       
       donate = <DonationPage info={{
         id: 1000,
@@ -123,7 +123,7 @@ export const Scrollview: FC<Props> = ({ match }) => {
   function getNumberOfPages(){
     let pages: number = 0;
     
-    if (div != loadingDiv)
+    if (div !== loadingDiv)
     {
       pages += 1; 
     }
@@ -136,19 +136,19 @@ export const Scrollview: FC<Props> = ({ match }) => {
       numPages = getNumberOfPages();
       let bullets: any = []
       
-      if (issue.headline != undefined){
+      if (issue.headline !== undefined){
         if (issue.headline.length > 0){
           numPages += 1; 
         }
       }
 
-      if (issue.donate.title != undefined){
+      if (issue.donate.title !== undefined){
         if (issue.donate.title.length > 0){
           numPages += 1; 
         }
       }
-      for (let i =0; i < numPages - 1; i++){
-        if (i == currentPage){
+      for (let i = 0; i < numPages - 1; i++){
+        if (i === currentPage){
           bullets.push(<div key={i * 100} className="_page_indicator_container h-2 w-2 my-auto mx-1 rounded-full bg-gray-900"></div>)
         }
         else{
