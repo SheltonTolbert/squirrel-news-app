@@ -22,7 +22,7 @@ export function getIssue(atIndex: number, language: LANGUAGES, onResult: (data: 
     .orderBy('publishedAt', 'desc').limit(atIndex).onSnapshot(
       (issue) => {
         const result: Issue = issue.docChanges()[issue.docChanges().length - 1].doc.data() as Issue;
-
+        
         firestore.collection('issues').doc(issue.docChanges()[0].doc.id).collection('articles').onSnapshot(articles => {
           result.articles = articles.docChanges().map(article => article.doc.data() as Article);
           onResult(result);
