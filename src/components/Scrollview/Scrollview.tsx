@@ -86,14 +86,14 @@ export const Scrollview: FC<Props> = ({ match }) => {
   function getScrollPosition(){
     // this will filter out non-number inputs
     if (div !== null && div.scrollLeft >= 0){
-      if (div.scrollLeft % window.screen.width == 0 ){
+      if (div.scrollLeft % window.screen.width === 0 ){
         updatePage(getCurrentPage()); 
       }
     }
   }
 
   function setScrollStart(){
-    if (div != null){
+    if (div !== null){
       div.scrollLeft = 0;
     }
   }
@@ -147,7 +147,7 @@ export const Scrollview: FC<Props> = ({ match }) => {
           numPages += 1; 
         }
       }
-      for (let i =0; i < numPages - 1; i++){
+      for (let i = 0; i < numPages - 1; i++){
         if (i === currentPage){
           bullets.push(<div key={i * 100} className="_page_indicator_container h-2 w-2 my-auto mx-1 rounded-full bg-gray-900"></div>)
         }
