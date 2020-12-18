@@ -1,5 +1,5 @@
 import React, { CSSProperties } from "react";
-import {Plugins } from '@capacitor/core';
+import { Plugins } from '@capacitor/core';
 // set the width of the page to the width of the screen
 
 
@@ -11,34 +11,8 @@ const style: CSSProperties = {
   const {Browser} = Plugins; 
 
 
-interface Article{ 
-    id: number;
-    date: string;
-    image: string;
-    image_credit: string;
-    link: string;
-    headline: string;
-    provider: string;
-    description: string;
-}
 
 interface Props{
-    // Prop declariation in the interface
-    // variable_name: type
-
-
-    /* This component should take in an article object with the following attributes; 
-        Article
-        {
-            id: 
-            date: 
-            article image: 
-            article link: 
-            article headline: 
-            article provider: 
-            article description: 
-        }
-    */
     headline: string;
     image: string; 
     date: string;
@@ -50,18 +24,13 @@ interface Props{
 
 export const IssueCoverPage: React.FC<Props> = ({headline, image, date, imageCredit}) => {
 
-    
-
-    
-    
     return(
-        <div className="flex flex-col-reverse h-full snap-child" style={style} >
-
+        <div className="flex flex-col h-full snap-child" style={style} >
 
             {/* Article information div */}
 
             <div className="_article_info h-auto  mb-4 p-0" style={style}>
-                <div className="_article_headline text-lg font-medium ml-3 mt-2 ">{headline}</div>
+                <div className="_article_headline text-lg font-medium mx-3 mt-2 ">{headline}</div>
                 <div className="_article_provider ml-3 my-2">{imageCredit}</div>
                 <div className="_article_description text-sm ml-3 text-gray-700">ISSUE: {date}</div>   
             </div> 

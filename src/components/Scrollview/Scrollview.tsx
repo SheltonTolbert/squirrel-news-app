@@ -1,7 +1,7 @@
 import React, { CSSProperties, FC, useEffect, useState } from 'react';
 import { ArticleTeaser } from '../../pages/ArticleTeaser'
 import { getIssue } from '../../api/firebase';
-import { Article, Donate, LANGUAGES, } from '../../models';
+import { Article, LANGUAGES, } from '../../models';
 import { DonationPage } from '../../pages/DonationPage'
 import { RouteComponentProps } from 'react-router-dom';
 //import { IssuesPage } from '../../pages';
@@ -164,7 +164,7 @@ export const Scrollview: FC<Props> = ({ match }) => {
   return (
     <div className="flex flex-col">
     
-      <div ref={ref} className="flex flex-row overflow-x-scroll overflow-y-hidden hide-scrollbars w-auto h-full scroll-snap" style={style}>
+      <div ref={ref} className="_pages flex flex-row overflow-x-scroll overflow-y-hidden hide-scrollbars w-auto h-full scroll-snap" style={style}>
 
         <IssueCoverPage date={issue.date} headline={issue.headline} image={issue.image} imageCredit={issue.imageCredit}/>
 

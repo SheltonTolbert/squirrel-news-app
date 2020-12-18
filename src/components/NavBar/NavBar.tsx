@@ -52,8 +52,14 @@ export const NavBar: React.FC<Props> = () => {
                 {/* Menu div */}
                 <div className="w-1/2 flex flex-row-reverse ml-auto mt-0">
                     <BurgerMenu className="_burger_menu h-12 w-auto mr-1 ml-0 mt-auto mb-auto p-0" onClick={toggleMenu}/>
+                    
+                    {/*
+                    
                     <HeartEmpty className="_favorite_button stroke-current stroke-1 h-8 w-auto mr-1 ml-0 mt-auto mb-auto p-0 " />
                     <PaperPlane className="_share_button h-10 w-auto mr-1 ml-0 mt-auto mb-auto p-0" />
+                    
+                    */}
+
                 </div>
             </div>
 

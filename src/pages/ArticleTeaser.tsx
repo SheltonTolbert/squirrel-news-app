@@ -1,5 +1,5 @@
 import React, { CSSProperties } from "react";
-import {Plugins } from '@capacitor/core';
+import { Plugins } from '@capacitor/core';
 // set the width of the page to the width of the screen
 
 
