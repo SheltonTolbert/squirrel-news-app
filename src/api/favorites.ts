@@ -1,7 +1,7 @@
 import { Plugins } from '@capacitor/core';
-import { getArticle } from './firebase';
-const { Storage } = Plugins;
 import { StoredFav } from '../models/index';
+
+const { Storage } = Plugins;
 
 export async function getFavorites(): Promise<StoredFav[]> {
   const raw = await Storage.get({ key: 'favorites'});
@@ -9,8 +9,10 @@ export async function getFavorites(): Promise<StoredFav[]> {
 }
 
 /** sets StoredFavorites as a string value to the platform`s Storage system */
-async function setFavorites(favorites: StoredFav[]) {
-  await Storage.set({ key: 'favorites', value: JSON.stringify(favorites)});
+function setFavorites(favorites: StoredFav[], onResult: () => void ) {
+  Storage.set({ key: 'favorites', value: JSON.stringify(favorites)})
+    .then( () => onResult)
+    .catch(reject => reject );
 }
 
 /**  */
@@ -21,13 +23,13 @@ export const isFav = async (issueId: string, articleId: string): Promise<boolean
   return result.length === 1;
 }
 
-export const addFav = async (issueId: string, articleId: string) => {
+export const addFav = async (issueId: string, articleId: string, onResult: () => void) => {
   const result = (await getFavorites());
   result.push({ issueId, articleId });
-  setFavorites(result);
+  setFavorites(result, onResult);
 }
 
-export const removeFav = async (issueId: string, articleId: string) => {
+export const removeFav = async (issueId: string, articleId: string, onResult: () => void) => {
   const result = (await getFavorites()).filter( item => item.issueId !== issueId && item.articleId !== articleId);
-  setFavorites(result);
+  setFavorites(result, onResult);
 }

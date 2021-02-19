@@ -1,4 +1,5 @@
 export interface Issue {
+  issueId: string;
   headline: string;
   teaser: string;
   image: string;
