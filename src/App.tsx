@@ -3,7 +3,7 @@ import { getIssue, getArchive, getArticle} from './api/firebase';
 import { BaseLayout } from './layouts/BaseLayout';
 import { LANGUAGES } from './models';
 import { FAB } from './widgets/FAB';
-
+import { isFav, getFavorites, addFav, removeFav} from './api/favorites';
 
   
 export const App: FC<{}> = ({}) => {
@@ -14,7 +14,15 @@ export const App: FC<{}> = ({}) => {
   //   console.log('fav', result);
   // });
 
-
+  getIssue(1, LANGUAGES.DE, (data) => {
+    // console.log('get issue', data.issueId)
+    
+    addFav(data.issueId, data.articles[0].articleId, () => { console.log('added')});
+    removeFav(data.issueId, data.articles[0].articleId, () => { console.log('removed')})
+  })
+  
+  // getFavorites().then( (data) => console.log('favs', data))
+  
   return (
     <div>
       {/* <FAB></FAB> */}
