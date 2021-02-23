@@ -166,7 +166,7 @@ export const Scrollview: FC<Props> = ({ match }) => {
     
       <div ref={ref} className="_pages flex flex-row overflow-x-scroll overflow-y-hidden hide-scrollbars w-auto h-full scroll-snap" style={style}>
 
-        <IssueCoverPage date={issue.date} headline={issue.headline} image={issue.image} imageCredit={issue.imageCredit}/>
+        <IssueCoverPage date={issue.date} headline={issue.headline} image={issue.image} imageCredit={issue.imageCredit} />
 
         {issue.articles.map((item, idx) =>
           <ArticleTeaser key={idx} article={{

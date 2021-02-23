@@ -36,14 +36,14 @@ export const NavBar: React.FC<Props> = () => {
             {/* Nav-Menu */} 
             <div style={style}>
             <NavMenu/>
-            <div className="_menu_tranparent absolute h-screen w-full semi z-10 " onClick={toggleMenu}></div>
+            <div className="_menu_transparent absolute h-screen w-full semi z-20 " onClick={toggleMenu}></div>
             </div>
             
-            <div className="_container flex flex-row w-full h-12 shadow">
+            <div className="_container absolute flex flex-row w-full h-16 z-10" style={{backgroundImage: "linear-gradient(180deg, rgba(0,0,0,0.35),rgba(0,0,0,0))"}}>
 
                 {/* Logo div */} 
                 <div className="w-1/2 h-full">
-                    <Logo className="_squirrel_news_logo h-12 w-auto mt-auto mb-auto ml-1 mr-auto p-0"/>
+                    <Logo className="_squirrel_news_logo h-12 w-auto mt-auto mb-auto ml-1 mr-auto p-0 fill-current svg-col-white"  />
                 </div>
                 {/* Spacer div 
                     <div className="_spacer w-1/3 p-0 m-0"/> 
@@ -51,7 +51,7 @@ export const NavBar: React.FC<Props> = () => {
 
                 {/* Menu div */}
                 <div className="w-1/2 flex flex-row-reverse ml-auto mt-0">
-                    <BurgerMenu className="_burger_menu h-12 w-auto mr-1 ml-0 mt-auto mb-auto p-0" onClick={toggleMenu}/>
+                    <BurgerMenu className="_burger_menu h-12 w-auto mr-1 ml-0 mt-auto mb-auto p-0" fill="white" onClick={toggleMenu}/>
                     
                     {/*
                     
