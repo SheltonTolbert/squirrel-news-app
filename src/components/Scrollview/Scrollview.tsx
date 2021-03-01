@@ -6,7 +6,7 @@ import { DonationPage } from '../../pages/DonationPage'
 import { RouteComponentProps } from 'react-router-dom';
 //import { IssuesPage } from '../../pages';
 import { IssueCoverPage } from '../../pages/IssueCoverPage';
-
+import { LastPage } from '../../pages/LastPage';
 
 // calculate window height based on the screen size, subtract the height of the nav bar (3 rem)
 // This places the scroll bar at the bottom of the page
@@ -24,6 +24,8 @@ interface Props extends RouteComponentProps<{id: string}> {}
 
 export const Scrollview: FC<Props> = ({ match }) => {
   
+  
+
   const [paginator, refreshPaginator] = useState<any>();
   const [issue, setIssue] = useState<
   { 
@@ -187,6 +189,7 @@ export const Scrollview: FC<Props> = ({ match }) => {
           body: issue.donate.text
         }} />
 
+        <LastPage/>
 
       </div>
 
@@ -198,7 +201,7 @@ export const Scrollview: FC<Props> = ({ match }) => {
       for the tailwind h-value to rem conversions. -st 30/11/2020    
 */}
       <div className="_paginator flex flex-row w-full h-8 "> 
-        <div className="_paginator_atomic_container flex flex-row h-8 w-auto my-auto mx-auto ">
+        <div className="_paginator_atomic_container flex flex-row h-8 w-auto my-auto mx-auto mt-12">
           {paginator}
         </div>
       </div>

@@ -1,16 +1,25 @@
-import React, { FC } from 'react';
+import React, { FC, useState, useEffect} from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'; 
 import { NavBar } from '../components/NavBar/NavBar';
 import { Scrollview } from '../components/Scrollview/Scrollview'
 import { AboutUsPage, DonationPage, ArchivePage, FavoritesPage, ImprintPage, PrivacyPolicyPage } from '../pages/index';
+
 // const intervals = 2; 
 
 
 
 export const BaseLayout: FC = () => {
+  
+  const [navTransparent, setTransparant] = useState(false);
+  const toggleNav = () => (setTransparant(!navTransparent));
+
+  useEffect(() => {
+    console.log(navTransparent)
+     
+  }, [navTransparent])
+
   return (
     <div>
-
 
       <Router>        
       {/* render toolbar and Burger Menu here */}
@@ -24,7 +33,7 @@ export const BaseLayout: FC = () => {
           </Route>
           
           {/* Article page redirects to issue where id == issue index in sorted list */}
-          <Route path="/issue/:id" component={Scrollview}/>
+          <Route path="/issue/:id" component={Scrollview} toggleNav={toggleNav}/>
 
           {/* Archive page */}
           <Route exact path="/archive">

@@ -25,7 +25,7 @@ interface Props{
 export const IssueCoverPage: React.FC<Props> = ({headline, image, date, imageCredit}) => {
 
     return(
-        <div className="flex flex-col h-full snap-child" style={style} >
+        <div className="flex flex-col h-full snap-child pt-12 " style={style} >
 
             {/* Article information div */}
 
