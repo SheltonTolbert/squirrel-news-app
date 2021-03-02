@@ -13,17 +13,12 @@ export const BaseLayout: FC = () => {
   const [navTransparent, setTransparant] = useState(false);
   const toggleNav = () => (setTransparant(!navTransparent));
 
-  useEffect(() => {
-    console.log(navTransparent)
-     
-  }, [navTransparent])
-
   return (
     <div>
 
       <Router>        
       {/* render toolbar and Burger Menu here */}
-      <NavBar/>
+      <NavBar navTransparent={navTransparent}/>
         
         <Switch>
           
@@ -33,7 +28,7 @@ export const BaseLayout: FC = () => {
           </Route>
           
           {/* Article page redirects to issue where id == issue index in sorted list */}
-          <Route path="/issue/:id" component={Scrollview} toggleNav={toggleNav}/>
+          <Route path="/issue/:id" render={(props: any) => (<Scrollview callback={toggleNav} navTransparent={navTransparent} {...props} />)}/>
 
           {/* Archive page */}
           <Route exact path="/archive">

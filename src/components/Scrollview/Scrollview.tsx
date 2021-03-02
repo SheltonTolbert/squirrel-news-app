@@ -20,9 +20,10 @@ function convertRemToPixels(rem: number) {
   return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
 }
 
-interface Props extends RouteComponentProps<{id: string}> {}
+interface Props extends RouteComponentProps<{id: string}> {callback: any, navTransparent: boolean}
 
-export const Scrollview: FC<Props> = ({ match }) => {
+export const Scrollview: FC<Props> = ({match, callback, navTransparent}) => {
+  
   
   
 
@@ -47,6 +48,7 @@ export const Scrollview: FC<Props> = ({ match }) => {
 
   const [currentPage, updatePage] = useState(0);
   
+  
 
   var ref = React.createRef<HTMLDivElement>();
   var div: any = null;
@@ -55,6 +57,9 @@ export const Scrollview: FC<Props> = ({ match }) => {
 
   useEffect(() =>{
     setPaginator(currentPage);
+    if ( (currentPage === 0 || currentPage >= numPages - 2) && !navTransparent){callback()}
+    else if ( (currentPage !== 0 && currentPage < numPages - 2) && navTransparent){callback()}
+
   }, [currentPage, issue])
 
   useEffect(() => {
